@@ -1,0 +1,106 @@
+ % packages
+\usepackage[ngerman,german]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[pdftex]{color} 
+\usepackage{setspace}
+\usepackage[pdftex]{graphicx}  
+\usepackage[final]{listings}  
+\usepackage{ae,aecompl}
+\usepackage{blindtext}
+
+% URL-Style normal
+\usepackage{url}
+\urlstyle{same}
+  
+% Text durchstreichen mit \sout; Option 'normalem' verhindert,
+% dass das Makro \emph{} umdefiniert wird.  
+\usepackage[normalem]{ulem}	
+	
+% ok-zeichen usw
+\usepackage{amsfonts} 
+  
+% Die folgenden drei Pakete ersetzen das veraltete palatino-Paket.
+% Für die Begründung siehe 'Das Latex2-Sündenregister' von Mart Trettin
+\usepackage{mathpazo}
+\usepackage[scaled=.95]{helvet}
+\usepackage{courier}
+\setkomafont{sectioning}{\normalcolor\bfseries}
+
+% pdfbookmarks 
+% (generiert für PDF auch gleich 
+% ein Inhaltsverzeichnis und Links)
+\usepackage[
+  	pdfstartview=FitH,   
+  	pdffitwindow=true,
+  	colorlinks,
+  	linkcolor=black,
+  	anchorcolor=black,
+  	citecolor=black,
+  	urlcolor=black
+  ]{hyperref}
+  
+% Linien in Kopf- und Fußzeilen einschalten
+\usepackage[automark]{scrlayer-scrpage}
+	
+% Seitenstil setzen
+\pagestyle{scrheadings}
+	
+% Anpassung der Kopf- und Fußzeile von scrpage2 zu scrlayer-scrpage
+\clearpairofpagestyles
+\ohead[\pagemark]{\pagemark}
+\chead[\headmark]{\headmark}
+\KOMAoptions{headsepline = true, plainfootsepline = true}
+	
+% Den Seitenstil 'scrheadings' statt des vordefinierten 'scrplain'
+% auch für Index- und Kapitelseiten benutzen.
+\renewcommand*{\chapterpagestyle}{scrheadings}
+\renewcommand*{\indexpagestyle}{scrheadings}
+	
+% Wir wollen die Kapitelüberschriften für die Hausarbeiten nicht abgesetzt haben.
+\renewcommand*{\chapterheadstartvskip}{\vspace*{-\topskip}}
+	
+% Leere Seiten erzeugt durch cleardoublepage sollen auch
+% den Seitenstil 'scrheadings' benutzen (Koma-Guide: 'Vakatseiten').
+% Nur notwendig bei two-side
+\KOMAoptions{cleardoublepage=scrheadings}
+    
+% Zeilenabstand
+\setstretch{1.5}
+  
+% Ränder	
+\setlength{\textwidth}{16cm}        % Textbreite
+\setlength{\textheight}{24cm}       % Texthöhe
+\setlength{\topmargin}{-12mm}       % oberer Rand
+  
+% PDF Dokumentinformationen
+\hypersetup
+  {
+  	pdftitle     = \myTitle,
+  	pdfsubject   = {Universität Hamburg, \thesisType},
+  	pdfauthor    = \myName,
+  	pdfkeywords  = \myKeywords,
+  	plainpages   = false, pdfpagelabels
+  }
+  
+% Listingsformatierung (Quelltexte)
+\definecolor{lightgrey}{rgb}{0.90,0.90,0.90}
+\lstloadlanguages{XML}
+\lstset{
+    tabsize=2,
+    escapeinside={(*@}{@*)},
+    captionpos=t,
+    framerule=0pt,
+    backgroundcolor=\color{lightgrey},
+    basicstyle=\small\ttfamily,
+    keywordstyle=\small\bfseries,
+    numbers=left,
+    fontadjust
+  }
+  
+% Abbildungsformat fett und Tabellen passend in den Text
+\usepackage[labelfont=bf]{caption}
+\usepackage{float}
+  
+% Tabellenbezeichnungen als Überschriften
+\KOMAoptions{captions=tableheading}  

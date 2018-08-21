@@ -1,0 +1,105 @@
+% ---------------------------------------------------------------------
+% Das Dokument kompiliert mit pdflatex und ist auf Basis 
+% von Koma-Script entstanden. 
+%
+% Autor des Templates (für Anmerkungen): 
+% Michael von Riegen, riegen@informatik.uni-hamburg.de
+%
+% Einzelne Code-Teile für das Titelblatt sind aus dem Template 
+% von Benjamin Kirchheim entnommen.
+% Neue Titelseite von Josef Holnburger
+%
+% 25.05.09, Frank Langanke: Vorlage auf aktuelle KOMA-Version aktualisiert
+% 26.05.09, Michael von Riegen: Anmerkung --> aktuelles Koma-Script ist nötig!
+% 17.10.2016 neues Uni logo
+% 21.08.2018 biblatex und scrlayer-scrpage statt scrpage2, anpassen auf SoWi-Layout
+% ---------------------------------------------------------------------
+
+% Wir nutzen Biblatex und biber für das Literaturverzeichnis
+\documentclass[12pt, twoside = false, bibliography=totoc]{scrbook}
+\usepackage[backend=biber, style=authoryear]{biblatex}
+\addbibresource{bib.bib}
+
+% Daten der Hausarbeit
+% Bitte füllen Sie die folgenden Daten vollständig aus
+\newcommand\myName{Josef Holnburger}
+\newcommand\myStreetAddress{XXX}
+\newcommand\myCityAddress{XXX}
+\newcommand\myEmail{josef@holnburger.com}
+\newcommand\myKeywords{Emotionen, Facebook, Wutbürger, Wahlkampf, Rechtspopulismus} % Optional
+\newcommand\myMatNr{XXX}
+\newcommand\myTitle{Musterhausarbeit}
+\newcommand\mySubTitle{Mit einem besonders interessanten Untertitel}
+\newcommand\thesisType{Hausarbeit}
+\newcommand\fachbereich{Sozialwissenschaften} 
+\newcommand\fachgebiet{Politikwissenschaft}
+\newcommand\courseOfStudies{Musterseminar}
+\newcommand\supervisorType{Dozentin} % Dozent*in, Seminarleiter etc.
+\newcommand\supervisor{Lisa Musterfrau}
+\newcommand\currentSemester{Wintersemester 2017/18}
+\newcommand\dateOfSubmission{03.03.2018}
+
+% Import von Paketen und Optionen die das gesamte Dokument betreffen
+% sind in myPreamble.sty ausgelagert.
+\usepackage{myPreamble}
+   
+\begin{document}
+
+
+% TITELSEITE
+\include{_titlepage}
+
+% VERZEICHNISSE (Inhaltsverzeichnis, Abkürzungen)
+% Vorspann einleiten --> Seitennummerierung römisch
+\frontmatter
+
+% Inhaltsverzeichnis
+\tableofcontents
+
+% Abbildungs- und Tabllenverzeichnis auf einer Seite
+\listoffigures
+\addcontentsline{toc}{chapter}{\listfigurename}
+\vspace*{24pt}
+{\let\clearpage\relax \listoftables}	
+\addcontentsline{toc}{chapter}{\listtablename}
+
+% Hauptteil einleiten --> Seitennummerierung wieder arabisch
+\mainmatter
+
+\chapter{Einleitung}\label{Einleitung}
+
+Hier kommt eine Quellenangabe \parencite{bartlett_populism_2014}. Weiterhin sieht man hier einen Link auf Abbildung \ref{fig:Übersicht_Parteien_2013-17}. Lorem ipsum dolor sit amet, consectetuer\footnote{Hier ist eine Fußnote!} adipiscing elit \parencite[vgl.][]{bobba_age_2017}. 
+\blindtext
+
+\vspace*{4pt}
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=1.0\textwidth]{plots/overview_posts_user_2017}
+	\caption[Übersicht der Likes, Anzahl der Beiträge, Kommentare und kommentierenden Nutzer auf den Facebookseiten der Parteien]{Übersicht der Likes, Beiträge, Kommentare und kommentierenden Nutzer der Facebookseiten der Parteien. Auswertungszeitraum: 01.01.2017 bis 31.12.2017}
+	\label{fig:Übersicht_Parteien_2013-17}
+\end{figure}
+
+\blindtext
+
+\blindtext
+
+\blindtext \parencite[vgl.][S.12]{forchtner_mediatization_2013}
+
+\blinddocument
+
+\section{Facebook und die Parteien}
+
+\blindtext
+
+\captionsetup{justification=raggedright}
+\input{tables/Reactions} 
+
+\chapter{Reaktionen}
+
+\blindtext
+
+
+\printbibliography[title={Literaturverzeichnis}]
+
+    
+\end{document}
